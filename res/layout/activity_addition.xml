@@ -1,0 +1,157 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:paddingLeft="@dimen/left_padding" >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/TextDummy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:id="@+id/TextDummy1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:id="@+id/TextNum1Digit1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zero"
+            android:gravity="right"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/text_value" />
+
+        <TextView
+            android:id="@+id/TextNum1Digit2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zero"
+            android:gravity="right"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/text_value" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/TextDummy2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:id="@+id/TextPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
+            android:gravity="right"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/text_value" />
+        
+        <TextView
+            android:id="@+id/TextNum2Digit1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zero"
+            android:gravity="right"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/text_value" />
+
+        <TextView
+            android:id="@+id/TextNum2Digit2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zero"
+            android:gravity="right"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/text_value" />
+
+    </TableRow>
+    
+
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+		<View android:layout_height="12dp" android:visibility="invisible" />        
+        <View android:layout_height="12dp" android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textViewCarry"
+            android:layout_height="12dp"
+            android:text="@string/carry"
+            android:gravity="right"
+            android:visibility="invisible"/>
+
+        <View android:layout_height="12dp" android:visibility="invisible" />
+    </TableRow>
+
+        <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+		<View android:layout_height="2dip" android:visibility="invisible" />        
+        <View android:layout_height="2dip" android:background="#FF909090" />
+        <View android:layout_height="2dip" android:background="#FF909090" />
+        <View android:layout_height="2dip" android:background="#FF909090" />
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/tableRow5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+    	
+    	<TextView
+            android:id="@+id/TextDummy3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:id="@+id/TextDummy4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/editTextDigit1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="1"
+            android:gravity="right"
+            android:inputType="textPhonetic|number|numberDecimal|phone"
+            android:textSize="@dimen/text_value"
+            android:width="@dimen/text_value" />
+
+        <EditText
+            android:id="@+id/editTextDigit2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="1"
+            android:gravity="right"
+            android:inputType="textPhonetic|number|numberDecimal|phone"
+            android:textSize="@dimen/text_value"
+            android:width="@dimen/text_value" >
+
+            <requestFocus />
+        </EditText>
+
+    </TableRow>
+</TableLayout>
