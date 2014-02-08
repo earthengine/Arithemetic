@@ -8,9 +8,11 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.text.method.NumberKeyListener;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
@@ -110,19 +112,19 @@ public class Addition extends Activity {
 
 
 	protected void afterTextChanged(Editable s) {
-		if(s.length()==0)
-			return;
 		
 		EditText et1 = (EditText) findViewById(R.id.editTextDigit1);
+		Editable et11 = et1.getText();
 		EditText et2 = (EditText) findViewById(R.id.editTextDigit2);
+		Editable et21 = et2.getText();
 		TextView c = (TextView) findViewById(R.id.textViewCarry);
-		if(et1.getText().length()==0){
-			et1.requestFocus();
-			return;
-		} else if(et2.getText().length()==0) {
+		if(et11.length()==1){
 			et2.requestFocus();
-			return;
+		} else if(et21.length()==1) {
+			et1.requestFocus();
 		}
+		if(et11.length()==0||et21.length()==0)
+			return;
 
 		checkAnswer(Integer.parseInt(et1.getText().charAt(0) + "" +
 				et2.getText().charAt(0)), c.isShown());

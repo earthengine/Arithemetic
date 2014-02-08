@@ -138,6 +138,7 @@
             android:gravity="right"
             android:inputType="textPhonetic|number|numberDecimal|phone"
             android:textSize="@dimen/text_value"
+            android:selectAllOnFocus="true"
             android:width="@dimen/text_value" />
 
         <EditText
@@ -148,6 +149,7 @@
             android:gravity="right"
             android:inputType="textPhonetic|number|numberDecimal|phone"
             android:textSize="@dimen/text_value"
+            android:selectAllOnFocus="true"
             android:width="@dimen/text_value" >
 
             <requestFocus />
