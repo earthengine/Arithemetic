@@ -5,14 +5,11 @@ import java.util.Random;
 import android.os.Bundle;
 import android.app.Activity;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
-import android.text.method.NumberKeyListener;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnFocusChangeListener;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
@@ -89,12 +86,12 @@ public class Addition extends Activity {
     
 
 	private void setTextChangedListener(int id) {
-		EditText et = (EditText) findViewById(id);
+		final EditText et = (EditText) findViewById(id);
 		et.addTextChangedListener(new TextWatcher(){
 
 			@Override
 			public void afterTextChanged(Editable s) {
-				Addition.this.afterTextChanged(s);
+				Addition.this.afterTextChanged(et, s);
 			}
 
 			@Override
@@ -108,10 +105,34 @@ public class Addition extends Activity {
 			}
         	
         });
+		et.setOnEditorActionListener(new OnEditorActionListener(){
+
+			@Override
+			public boolean onEditorAction(TextView v, int actionId,
+					KeyEvent event) {
+				if(v instanceof EditText && actionId==EditorInfo.IME_ACTION_DONE){
+					Addition.this.onEditorAction((EditText)v);
+					return true;
+				}
+				return false;
+			}
+			
+		});
 	}
 
 
-	protected void afterTextChanged(Editable s) {
+	protected void onEditorAction(EditText et) {
+		if(et == (EditText) findViewById(R.id.editTextDigit2)){
+			Editable t = et.getText();
+			if(t.length()==1){
+				t.insert(0, "0");
+				et.setText(t);
+			}
+		}
+			
+	}
+
+	protected void afterTextChanged(EditText et, Editable s) {
 		
 		EditText et1 = (EditText) findViewById(R.id.editTextDigit1);
 		Editable et11 = et1.getText();
@@ -120,9 +141,21 @@ public class Addition extends Activity {
 		TextView c = (TextView) findViewById(R.id.textViewCarry);
 		if(et11.length()==1){
 			et2.requestFocus();
-		} else if(et21.length()==1) {
+		} else if(et21.length()==2){
+			char c1 = et21.charAt(0);
+			
+			et21.delete(0, 1);
+			
+			if(c1=='1')
+				c.setVisibility(View.VISIBLE);
+			else if(c1=='0')
+				c.setVisibility(View.INVISIBLE);
+			
+			et2.setText(et21);
 			et1.requestFocus();
 		}
+
+		
 		if(et11.length()==0||et21.length()==0)
 			return;
 
